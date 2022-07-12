@@ -1,0 +1,42 @@
+1. Vulnerability Summary
+
+In thinkphp5.1.29
+
+Construct XSS attack
+
+2. Vulnerability exploitation conditions
+
+enable debug
+
+Applicable to thinphp5.x
+
+Not applicable to thinkphp5.0.24 and some versions higher than thinphp5.1.29
+
+Exploit: Available for download from https://github.com/top-think/think/archive/refs/tags/v5.1.29.zip
+
+![1642153009094](xss-cve.assets/1642153009094-1657599526613.png)
+
+The vulnerability has a large impact, especially in China
+
+This vulnerability may lead to XSS attack, which can obtain victim cookies
+
+It may cause the administrator account to be stolen
+
+Vulnerability to reproduce:
+
+Environment: 
+
+windows10 x86、apache2、thinkphp5.1.29
+
+
+
+After we open it, enter the following exp：
+
+Vulnerability point
+
+
+poc
+
+```
+http://localhost/index.php?s=index/think\cache\driver\File/get&name=path&default="><script>alert(1)</script>
+```
